@@ -1,0 +1,70 @@
+<br/><br/><br/>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4 rounded"  style="background-color: white;">
+    <br/>
+    <span style="text-align: center;"><h3>Register</h3></span>
+    <div style="width: auto;">
+      <form [formGroup]="registerForm" #registeruser (ngSubmit)="registerUser(registerUser)">
+        <div class="form-group row">
+          <label for="name" class="col-lg-3 col-form-label" style="text-align: right;">Name:</label>
+          <div class="col-lg-6">
+              <input type="text" class="form-control" formControlName = "name" data-toggle="tooltip"
+              data-placement="right" title="Enter name">
+              <div class="alert alert-danger" *ngIf = "(UserName?.touched) && (UserName?.invalid)"
+                style="margin-top: 5px;">
+                  <span *ngIf="UserName?.errors?.required">Name is Required</span>
+                </div>
+          </div>
+       </div>
+       <div class="form-group row">
+        <label for="expertise" class="col-lg-3 col-form-label" style="text-align: right;">Expertise:</label>
+        <div class="col-lg-6">
+            <input type="text" class="form-control" formControlName = "expertise"  data-toggle="tooltip"
+            data-placement="right" title="Enter expertise">
+            <div class="alert alert-danger" *ngIf = "(UserExpertise?.touched) && (UserExpertise?.invalid)"
+                style="margin-top: 5px;">
+                  <span *ngIf="UserExpertise?.errors?.required">Expertise is Required</span>
+            </div>
+        </div>
+     </div>
+     <div class="form-group row">
+      <label for="email" class="col-lg-3 col-form-label" style="text-align: right;">Email Id:</label>
+      <div class="col-lg-6">
+          <input type="email" class="form-control" formControlName="email" data-toggle="tooltip"
+          data-placement="right" title="Enter email">
+          <div class="alert alert-danger" *ngIf = "(UserEmail?.touched) && (UserEmail?.invalid)"
+                style="margin-top: 5px;">
+                  <span *ngIf="UserEmail?.errors?.required">Email is Required</span>
+                  <span *ngIf = "UserEmail?.errors?.email">
+                    Invalid Email Format
+                </span>
+            </div>
+      </div>
+    </div>
+      <div class="form-group row">
+        <label for="password" class="col-lg-3 col-form-label" style="text-align: right;">Password:</label>
+        <div class="col-lg-6">
+            <input type="password" class="form-control" formControlName="password" data-toggle="tooltip"
+            data-placement="right" title="Enter password">
+            <div class="alert alert-danger" *ngIf = "(UserPassword?.touched) && (UserPassword?.invalid)"
+                style="margin-top: 5px;">
+                  <span *ngIf="UserPassword?.errors?.required">Password is Required</span>
+            </div>
+        </div>
+   </div>
+     <div class="form-group row">
+        &nbsp;
+        <div class="col-md-12 text-center">
+          <label for="file" style="color: rgb(94, 197, 238);">Upload Resume</label>&nbsp;
+          <input class="file-input" type="file" formControlName="resume" (change)="selectFile($event)">
+        </div>
+        <div class="col-md-12 text-center">
+          <button type="submit" [disabled]="!registerForm.valid" class="btn btn-sucess" style="background-color: #86bc25; width: auto;">Register With Us</button></div>
+      </div>
+      </form>
+    </div>
+  </div>
+   <!-- toast message -->
+   <app-toast></app-toast>
+</div>

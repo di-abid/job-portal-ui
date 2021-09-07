@@ -1,0 +1,35 @@
+<br/><br/><br/>
+<div class="row ">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4 rounded"  style="background-color: white;">
+    <br/>
+    <span style="text-align: center;"><h3>Job List</h3></span>
+    <div style="width: auto;">
+      <span *ngIf="!dataExists" class="text-danger">{{noDataMsg}}</span>
+      <div class="modal-body" *ngFor="let jobs of jobData ">
+        <div class="container" [hidden]="!dataExists">
+          <div>
+            <label> <h5>{{jobs.jobCompany}}</h5></label>
+            <p class="text-right" style="font-size: smaller;">{{jobs.jobExpYears}} Yrs</p>
+            <button type="button" class="btn btn-sucess btn-sm" style="background-color: #86bc25;float: right;" (click)="viewJobDetails(jobs)">View</button>
+          </div>
+          <div>
+            <span style="font-size: small;font-weight: bold">Job Overview: </span><span style="font-size: smaller;">{{jobs.jobOverview}}</span>
+          </div>
+          <div>
+            <span style="font-size: small;font-weight: bold">Duties and Responsibilities:</span>
+            <span style="font-size: smaller;">&nbsp; {{jobs.jobDetail.jobRolesAndResp}}</span>
+          </div>
+          <div>
+            <span style="font-size: small;font-weight: bold"> Skills:</span>
+            <span style="font-size: smaller;">&nbsp; {{jobs.jobSkills}}</span>
+          </div>
+          <div>
+            <span style="font-size: small;font-weight: bold"> Location:</span>
+            <span style="font-size: smaller;">&nbsp; {{jobs.jobLocation}}</span>
+          </div>
+        </div>
+        </div>
+    </div>
+</div>
+</div>

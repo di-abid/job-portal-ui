@@ -1,0 +1,45 @@
+<br/><br/><br/>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4 rounded"  style="background-color: white;">
+    <br/>
+    <span style="text-align: center;"><h3>Login</h3></span>
+    <div style="width: auto;">
+      <form [formGroup]="loginForm" #loginuser (ngSubmit)="loginUser()">
+        <div class="form-group row">
+          <label for="name" class="col-lg-3 col-form-label" style="text-align: right;">Email:</label>
+          <div class="col-lg-6">
+              <input type="text" class="form-control" formControlName = "email" data-toggle="tooltip"
+              data-placement="right" title="Enter email">
+              <div class="alert alert-danger" *ngIf = "(UserEmail?.touched) && (UserEmail?.invalid)"
+                style="margin-top: 5px;">
+                  <span *ngIf="UserEmail?.errors?.required">Email is Required</span>
+                  <span *ngIf = "UserEmail?.errors?.email">
+                    Invalid Email Format
+                </span>
+            </div>
+          </div>
+       </div>
+       <div class="form-group row">
+        <label for="name" class="col-lg-3 col-form-label" style="text-align: right;">Password:</label>
+        <div class="col-lg-6">
+            <input type="password" class="form-control" formControlName = "password" data-toggle="tooltip"
+            data-placement="right" title="Enter password">
+            <div class="alert alert-danger" *ngIf = "(UserPassword?.touched) && (UserPassword?.invalid)"
+                style="margin-top: 5px;">
+                  <span *ngIf="UserPassword?.errors?.required">Password is Required</span>
+            </div>
+        </div>
+     </div>
+     <div class="form-group row">
+        <div class="col-md-12 text-center">
+          <button type="submit" [disabled]="!loginForm.valid" class="btn btn-sucess" style="background-color: #86bc25; width: auto;">Login</button>&nbsp;
+          <button type="button" [disabled]="false" class="btn btn-sucess" style="background-color: #86bc25; width: auto;" (click)="routeToRegister()">Register</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+     <!-- toast message -->
+     <app-toast></app-toast>
+  </div>

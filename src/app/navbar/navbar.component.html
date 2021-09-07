@@ -1,0 +1,37 @@
+<div  class="container-fluid">
+  <nav class="navbar navbar-expand-sm" style="background-color: black;">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <img class="img-responsive" src="assets/images/deloitte_logo.png">
+        </li>&nbsp;
+        <li class="nav-item active">
+          <a routerLink="register" class="nav-link" ><span style="color: white;">Register</span></a>
+        </li>&nbsp;
+        <li class="nav-item ">
+          <a routerLink="job-search" class="nav-link" ><span style="color: white;">Job Search</span></a>
+        </li>&nbsp;
+        <li class="nav-item ">
+          <a routerLink="job-list" class="nav-link" ><span style="color: white;">Jobs List</span></a>
+        </li>&nbsp;
+        <li class="nav-item ">
+          <a routerLink="job-description" class="nav-link" ><span style="color: white;">Job description</span></a>
+        </li>&nbsp;
+        <li class="nav-item ">
+          <a routerLink="job-history" class="nav-link" ><span style="color: white;">Job History</span></a>
+        </li>&nbsp;
+        <li class="nav-item dropdown" *ngIf="isAdmin === true ">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"> <span style="color: white;">Admin </span></a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" routerLink="add-job">Add Job</a></li>
+            <li><a class="dropdown-item" routerLink="admin">Update Job</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" *ngIf="isUserLoggedIn">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+      </form>
+    </div>
+    </nav>
+  </div>

@@ -1,0 +1,14 @@
+:host {
+    position: fixed;
+    top: 35%;
+    left: 68%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    margin: .5em;
+    z-index: 1200;
+    min-width: 200px;
+}
+
+.toast-header {
+    background-color: black !important;
+}

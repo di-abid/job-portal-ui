@@ -1,0 +1,61 @@
+<br/><br/><br/>
+<div class="row ">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4 rounded"  style="background-color: white;">
+    <br/>
+    <span style="text-align: center;"><h3>Job Search</h3></span>
+    <div style="width: auto;">
+      <form [formGroup]="jobSearchForm" #searchjob (ngSubmit)="searchJob(searchjob)">
+        <div class="form-group row">
+          <label for="keyskill" class="col-sm-3 col-form-label" style="text-align: right;">Key Skills</label>
+          <div class="col-lg-7">
+              <input type="text" class="form-control" formControlName = "keySkills" data-toggle="tooltip"
+              data-placement="right" title="Enter key skills">
+          </div>
+       </div>
+       <div class="form-group row">
+          <label for="category" class="col-sm-3 col-form-label" style="text-align: right;">Category</label>
+          <div class="col-lg-7">
+            <select class="form-control"  data-toggle="tooltip" formControlName = "jobCategory"
+          data-placement="right" title="category">
+            <option *ngFor="let jobCat of jobCategory" value="{{ jobCat }}">
+              {{ jobCat }}</option>
+          </select>
+          </div>
+      </div>
+     <div class="form-group row">
+        <label for="location" class="col-sm-3 col-form-label" style="text-align: right;">Location</label>
+        <div class="col-lg-7">
+            <input type="text" class="form-control" formControlName = "jobLocation" data-toggle="tooltip"
+            data-placement="right" title="Enter location">
+        </div>
+     </div>
+     <div class="form-group row">
+        <label for="category" class="col-sm-3 col-form-label" style="text-align: right;">Experience</label>
+        <div class="col-lg-3">
+          <select class="form-control"  data-toggle="tooltip" formControlName = "jobExpYears"
+          data-placement="right" title="Year">
+            <option value="null">Year</option>
+            <option *ngFor="let exp of experienceYearValues" value="{{ exp }}">
+              {{ exp }} Year</option>
+          </select>
+        </div>
+        <div class="col-lg-4">
+          <select class="form-control"  data-toggle="tooltip" formControlName = "jobExpMonths"
+          data-placement="right" title="Month">
+            <option value="null">Month</option>
+            <option *ngFor="let exp of experienceMonthValues" value="{{ exp }}">
+              {{ exp }} Month</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-12 text-center">
+          <button type="submit" [disabled]="!jobSearchForm.valid" class="btn btn-sucess" style="background-color: #86bc25; width: 100px;">Search</button></div>
+      </div>
+      </form>
+    </div>
+  </div>
+  <!-- toast message -->
+  <app-toast></app-toast>
+</div>
